@@ -1,0 +1,97 @@
+@mixin retina( $url, $ext, $sizing: '100%' ){
+
+        background-image: url( ($url) + "." + ($ext) );
+
+        @if( $sizing == '100%'){
+                background-size: 100% 100%;
+        }@else if( $sizing == 'cover'){
+                background-size: cover;
+        }@else if( $sizing == 'contain'){
+                background-size: contain;
+        }
+        @else {
+            background-size: ($sizing);
+        }
+
+        background-repeat: no-repeat;
+
+        @media only
+                 screen and (-webkit-min-device-pixel-ratio: 1.5),
+        only screen and (   min--moz-device-pixel-ratio: 1.5),
+        only screen and (     -o-min-device-pixel-ratio: 1.5/1),
+        only screen and (        min-device-pixel-ratio: 1.5),
+        only screen and (                min-resolution: 192dpi),
+        only screen and (                min-resolution: 1.5dppx){
+                background-image: url( ($url) + "-2x." + ($ext) );
+        }
+}
+
+
+
+@mixin imageGradient($url, $color1, $color2) {
+
+  background-image: url( ($url) ), -moz-linear-gradient(top, ($color1) 0%, ($color2) 100%); /* FF3.6+ */
+  background-image: url( ($url) ), -webkit-gradient(linear, left top, left bottom, color-stop(0%,($color1)), color-stop(100%,($color2))); /* Chrome,Safari4+ */
+  background-image: url( ($url) ), -webkit-linear-gradient(top, ($color1) 0%,($color2) 100%); /* Chrome10+,Safari5.1+ */
+  background-image: url( ($url) ), -o-linear-gradient(top, ($color1) 0%,($color2) 100%); /* Opera 11.10+ */
+  background-image: url( ($url) ), -ms-linear-gradient(top, ($color1) 0%,($color2) 100%); /* IE10+ */
+  background-image: url( ($url) ), linear-gradient(to bottom, ($color1) 0%,($color2) 100%); /* W3C */
+
+  background-size: auto, 100% 100%;
+
+  background-repeat: no-repeat, repeat;
+}
+
+@mixin retinaGradient($url, $ext, $sizing, $color1, $color2) {
+
+  background-image: url( ($url) + "." + ($ext) ), -moz-linear-gradient(top, ($color1) 0%, ($color2) 100%); /* FF3.6+ */
+  background-image: url( ($url) + "." + ($ext) ), -webkit-gradient(linear, left top, left bottom, color-stop(0%,($color1)), color-stop(100%,($color2))); /* Chrome,Safari4+ */
+  background-image: url( ($url) + "." + ($ext) ), -webkit-linear-gradient(top, ($color1) 0%,($color2) 100%); /* Chrome10+,Safari5.1+ */
+  background-image: url( ($url) + "." + ($ext) ), -o-linear-gradient(top, ($color1) 0%,($color2) 100%); /* Opera 11.10+ */
+  background-image: url( ($url) + "." + ($ext) ), -ms-linear-gradient(top, ($color1) 0%,($color2) 100%); /* IE10+ */
+  background-image: url( ($url) + "." + ($ext) ), linear-gradient(to bottom, ($color1) 0%,($color2) 100%); /* W3C */
+
+  @if( $sizing == '100%'){
+          background-size: 100% 100%, 100% 100%;
+  }@else if( $sizing == 'cover'){
+          background-size: cover, 100% 100%;
+  }@else if( $sizing == 'contain'){
+          background-size: contain, 100% 100%;
+  }
+  @else {
+      background-size: ($sizing), 100% 100%;
+  }
+
+  background-repeat: no-repeat, repeat;
+
+  @media only
+           screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (   min--moz-device-pixel-ratio: 1.5),
+  only screen and (     -o-min-device-pixel-ratio: 1.5/1),
+  only screen and (        min-device-pixel-ratio: 1.5),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 1.5dppx){
+    background-image: url( ($url) + "-2x." + ($ext) ), -moz-linear-gradient(top, ($color1) 0%, ($color1) 100%); /* FF3.6+ */
+    background-image: url( ($url) + "-2x." + ($ext) ), -webkit-gradient(linear, left top, left bottom, color-stop(0%,($color1)), color-stop(100%,($color2))); /* Chrome,Safari4+ */
+    background-image: url( ($url) + "-2x." + ($ext) ), -webkit-linear-gradient(top, ($color1) 0%,($color2) 100%); /* Chrome10+,Safari5.1+ */
+    background-image: url( ($url) + "-2x." + ($ext) ), -o-linear-gradient(top, ($color1) 0%,($color2) 100%); /* Opera 11.10+ */
+    background-image: url( ($url) + "-2x." + ($ext) ), -ms-linear-gradient(top, ($color1) 0%,($color2) 100%); /* IE10+ */
+    background-image: url( ($url) + "-2x." + ($ext) ), linear-gradient(to bottom, ($color1) 0%,($color2) 100%); /* W3C */
+  }
+}
+
+@mixin textShadow() {
+    text-shadow: .5px 1px 2px rgba(0, 0, 0, .75);
+}
+
+@mixin vendorPrefix($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+  #{$property}: $value;
+}
+
+.pseudoButton{
+  cursor:pointer;
+}
