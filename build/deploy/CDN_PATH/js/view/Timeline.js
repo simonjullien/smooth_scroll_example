@@ -64,7 +64,7 @@ define([
 
         onScrollChange:function(topValue){
             this.tpValue = - topValue;
-            this.$scrollNode.css('height',(this.$momentsNode.height() + 20)+'px');
+            this.$scrollNode.css('height',(this.$momentsNode.height() + 70)+'px');
         },
 
         cleanUp: function(){

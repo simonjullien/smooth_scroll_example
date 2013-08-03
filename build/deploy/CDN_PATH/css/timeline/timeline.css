@@ -23,7 +23,7 @@
 /* line 23, ../../../../scss/timeline/timeline.scss */
 .smooth-image-col {
   display: block;
-  margin-top: 5px;
+  margin-top: 30px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -36,7 +36,7 @@
 .timeline-scroll {
   position: absolute;
   width: 1px;
-  height: 5250px;
+  height: 8000px;
   opacity: 0;
 }
 
